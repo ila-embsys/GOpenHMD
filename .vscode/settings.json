@@ -1,0 +1,12 @@
+{
+    "terminal.integrated.env.linux": {
+        "G_MESSAGES_DEBUG": "all",
+        "GI_TYPELIB_PATH": "${workspaceFolder}/builddir",
+        "LD_LIBRARY_PATH": "${workspaceFolder}/builddir",
+    },
+    "terminal.integrated.env.windows": {
+        "G_MESSAGES_DEBUG": "all",
+        "GI_TYPELIB_PATH": "${workspaceFolder}/builddir",
+        "LD_LIBRARY_PATH": "${workspaceFolder}/builddir",
+    },
+}

@@ -1,0 +1,43 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Vala : GOpenHMD : Device",
+            "program": "./builddir/tests/vala-gopenhmd-device",
+            "env": { "G_MESSAGES_DEBUG": "all" }
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Vala : GOpenHMD : Device descriptions",
+            "program": "./builddir/tests/vala-gopenhmd-device-descriptions",
+            "env": { "G_MESSAGES_DEBUG": "all" }
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Vala : GOpenHMD : Pose",
+            "program": "./builddir/tests/vala-gopenhmd-pose",
+            "env": { "G_MESSAGES_DEBUG": "all" }
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Vala : GOpenHMD : Probe",
+            "program": "./builddir/tests/vala-gopenhmd-pose",
+            "env": { "G_MESSAGES_DEBUG": "all" }
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Vala : OpenHMD : Info",
+            "program": "./builddir/tests/vala-openhmd-info",
+            "env": { "G_MESSAGES_DEBUG": "all" }
+        }
+    ]
+}
