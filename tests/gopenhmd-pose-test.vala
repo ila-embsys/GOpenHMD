@@ -26,13 +26,15 @@ public int main (string[] args) {
 
     float quat;
     try {
-        quat = dev.get_float(GOpenHMD.FloatValue.ROTATION_QUAT);
+        for (var i = 0; i < 1000; i++) {
+            quat = dev.get_float(GOpenHMD.FloatValue.ROTATION_QUAT);
+            debug(@"$(quat)");
+            GOpenHMD.sleep (0.001);
+        }
     } catch (GOpenHMD.Error ex) {
         warning(@"Can't retrieve device parameters: $(ex.message)\n");
         return -1;
     }
-    
-    info(@"$(quat)");
-    
+
     return 0;
 }

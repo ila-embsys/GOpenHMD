@@ -1,4 +1,13 @@
 namespace GOpenHMD {
+
+    public struct ContextHandle { 
+        public ContextHandle(int* ptr) {
+            this.ptr = ptr;
+        }
+        
+        public int* ptr;
+    }
+
     public class Context : Object {
         public Context() throws Error {
             Object();
@@ -54,22 +63,11 @@ namespace GOpenHMD {
             return ret;
         }
 
-        public Device open_device(int index, DeviceSettings? settings = null) throws Error{
-            //  TODO
-            //  var s = (ohmd._device_settings)settings;
-            //  ohmd._device p;
-            //  (settings == null) ? p = ohmd.list_open_device(this.ctx, index)
-            //  				   : p = ohmd.list_open_device_s(this.ctx, index, s);
-            unowned var? p = ohmd.list_open_device(this.ctx, index);
-
-            if (p == null) {
-                throw new Error.DEVICE_OPEN_FAIL(
-                    this.error ?? @"Failed to open device with index='$(index)'"
-                );
-            }
-            var dev_ptr = DevicePtr((int*)&p);
-            var dev = new Device(dev_ptr, settings);
-            
+        public Device open_device(
+            int index,
+            DeviceSettings? settings = null
+        ) throws Error{
+            var dev = new Device(this, index, settings);
             return dev;
         }
         
@@ -96,6 +94,7 @@ namespace GOpenHMD {
         // Private properties
 
         private unowned ohmd._context? ctx;
+        public ContextHandle handle { get { return ContextHandle((int*)this.ctx); } }
 
         // Private methods
 

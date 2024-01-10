@@ -3,39 +3,44 @@ namespace GOpenHMD {
 
     }
 
-    public struct DevicePtr { 
-        public DevicePtr(int* ptr) {
-            this.ptr = ptr;
-        }
-        
-        public int* ptr;
-    }
-
     public class Device : Object,
         IGetFloat<FloatValue>,
         ISetFloat<FloatValue>,
         IGetInteger<DeviceDescriptionIntValue>,
         ISetInteger<DeviceDescriptionIntValue>,
         ISetData<DataValue, void*> {
-        public Device(DevicePtr dev_ptr, DeviceSettings? settings) {
-            Object(settings: settings, dev_ptr: dev_ptr);
-        }
 
+        public Device(
+            Context context,
+            int index,
+            DeviceSettings? settings
+        ) throws Error {
+            Object(
+                context: context,
+                index: index,
+                settings: settings
+            );
+
+            if (this.dev == null) {
+                throw new Error.DEVICE_OPEN_FAIL(
+                    @"Failed to open device with index='$(this.index)'"
+                );
+            };
+        }
+        
         construct {
-            this.dev = (ohmd._device)this.dev_ptr.ptr;
+            this.dev = ohmd.list_open_device(
+                (ohmd._context)this.context.handle.ptr,
+                this.index
+            );
             debug(@"Device was opened: '$((uint)this.dev)'");
         }
 
         ~Device() {
             if (this.dev != null) {
-                debug ("Destroy device object,"
-                + " but leave its handle opened due to"
-                + " original code examples behaviour."
-                + " Otherwise, it segfaults."
-                + " Device handles will be closed on context destroying");
-                //  debug (@"Close device: '$((uint)this.dev)'");
-                //  ohmd.close_device(this.dev);
-                //  debug("Device is closed"); 
+                debug (@"Close device: '$((uint)this.dev)'");
+                ohmd.close_device(this.dev);
+                debug("Device is closed"); 
             }
         }
 
@@ -108,7 +113,8 @@ namespace GOpenHMD {
         // Private properties
 
         public DeviceSettings? settings { get; construct; }
-        public DevicePtr dev_ptr { get; construct; }
+        public Context context { get; construct; }
+        public int index { get; construct; }
         private unowned ohmd._device dev;
     }
 }
