@@ -3,5 +3,6 @@ image:
 
 vscode:
   extensions:
-		- mesonbuild.mesonbuild"
+		- mesonbuild.mesonbuild
 		- prince781.vala
+    - vadimcn.vscode-lldb
