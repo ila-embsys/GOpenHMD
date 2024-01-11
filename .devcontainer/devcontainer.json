@@ -12,7 +12,8 @@
 		"vscode": {
 			"extensions": [
 				"mesonbuild.mesonbuild",
-				"prince781.vala"
+				"prince781.vala",
+				"vadimcn.vscode-lldb"
 			]
 		}
 	}
