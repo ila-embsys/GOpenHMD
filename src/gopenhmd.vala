@@ -11,35 +11,35 @@ namespace GOpenHMD {
         DATA_VALUE_SET_FAIL,
     }
 
-    public struct Version{
+    public struct Version {
         int major;
         int minor;
         int patch;
 
-        public Version() {
-            ohmd.get_version(out this.major, out this.minor, out this.patch);
+        public Version () {
+            ohmd.get_version (out this.major, out this.minor, out this.patch);
         }
 
-        public string to_string() {
+        public string to_string () {
             return @"$major.$minor.$patch";
         }
     }
 
-    public Version version() {
-        var v = Version();
+    public Version version () {
+        var v = Version ();
         return v;
     }
 
-    public void sleep(double time) {
-        ohmd.sleep(time);
+    public void sleep (double time) {
+        ohmd.sleep (time);
     }
 
-    public string gets(StringDescription description) throws Error {
+    public string gets (StringDescription description) throws Error {
         var type = (ohmd._string_description) description;
         string* o;
-        ohmd.gets(type, out o);
+        ohmd.gets (type, out o);
         if (o == null) {
-            throw new Error.STRING_DESCRIPTION_GET_FAIL(
+            throw new Error.STRING_DESCRIPTION_GET_FAIL (
                 "Can not get setring description, a pointer is zero"
             );
         }

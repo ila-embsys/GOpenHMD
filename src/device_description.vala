@@ -4,23 +4,24 @@ namespace GOpenHMD {
 public class DeviceDescription : Object {
 
     public string vendor {
-        get { 
-            return this.ctx.list_gets(
+        get {
+            return this.ctx.list_gets (
                 this.index, DeviceDescriptionStringValue.VENDOR
             );
         }
-    }         
-    
+    }
+
     public string product {
-        get { 
-            return this.ctx.list_gets(
+        get {
+            return this.ctx.list_gets (
                 this.index, DeviceDescriptionStringValue.PRODUCT
             );
         }
-    }            
+    }
+
     public string path {
         get {
-            return this.ctx.list_gets(
+            return this.ctx.list_gets (
                 this.index, DeviceDescriptionStringValue.PATH
             );
         }
@@ -29,7 +30,7 @@ public class DeviceDescription : Object {
     public int? screen_horizontal_resolution {
         get {
             try {
-                int hres = this.ctx.list_geti(
+                int hres = this.ctx.list_geti (
                     this.index,
                     DeviceDescriptionIntValue.SCREEN_HORIZONTAL_RESOLUTION
                 );
@@ -41,7 +42,7 @@ public class DeviceDescription : Object {
     public int? screen_vertical_resolution {
         get {
             try {
-                int hres = this.ctx.list_geti(
+                int hres = this.ctx.list_geti (
                     this.index,
                     DeviceDescriptionIntValue.SCREEN_VERTICAL_RESOLUTION
                 );
@@ -53,7 +54,7 @@ public class DeviceDescription : Object {
     public int? device_class {
         get {
             try {
-                int hres = this.ctx.list_geti(
+                int hres = this.ctx.list_geti (
                     this.index,
                     DeviceDescriptionIntValue.DEVICE_CLASS
                 );
@@ -65,7 +66,7 @@ public class DeviceDescription : Object {
     public int? device_flags {
         get {
             try {
-                int hres = this.ctx.list_geti(
+                int hres = this.ctx.list_geti (
                     this.index,
                     DeviceDescriptionIntValue.DEVICE_FLAGS
                 );
@@ -77,7 +78,7 @@ public class DeviceDescription : Object {
     public int? control_count {
         get {
             try {
-                int hres = this.ctx.list_geti(
+                int hres = this.ctx.list_geti (
                     this.index,
                     DeviceDescriptionIntValue.CONTROL_COUNT
                 );
@@ -89,7 +90,7 @@ public class DeviceDescription : Object {
     public int? control_hints {
         get {
             try {
-                int hres = this.ctx.list_geti(
+                int hres = this.ctx.list_geti (
                     this.index,
                     DeviceDescriptionIntValue.CONTROLS_HINTS
                 );
@@ -101,7 +102,7 @@ public class DeviceDescription : Object {
     public int? control_types {
         get {
             try {
-                int hres = this.ctx.list_geti(
+                int hres = this.ctx.list_geti (
                     this.index,
                     DeviceDescriptionIntValue.CONTROLS_TYPES
                 );
@@ -109,14 +110,14 @@ public class DeviceDescription : Object {
             } catch (Error ex) { return null; }
         }
     }
-    
-    public DeviceDescription(GOpenHMD.Context ctx, int index) {
-        Object(
+
+    public DeviceDescription (GOpenHMD.Context ctx, int index) {
+        Object (
             ctx: ctx,
             index: index
         );
     }
-    
+
     construct {}
 
     public int index { get; construct; }

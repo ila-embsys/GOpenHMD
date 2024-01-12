@@ -1,6 +1,5 @@
 namespace GOpenHMD {
 
-    
 public enum DeviceDescriptionStringValue {
     // NOTE: Value assigned from `ohmd` turns to zero
     VENDOR = 0, // ohmd._string_value.VENDOR,
@@ -64,31 +63,31 @@ public enum DataValue {
 }
 
 public interface IGetString<T> : GLib.Object {
-    public abstract unowned string get_str(T type) throws Error;
+    public abstract unowned string get_str (T type) throws Error;
 }
 
-public interface IGetInteger<T> : GLib.Object {
-    public abstract int get_int(T type) throws Error;
+public interface IGetInteger<T>: GLib.Object {
+    public abstract int get_int (DeviceDescriptionIntValue type) throws Error;
 }
 
 public interface ISetInteger<T> : GLib.Object {
-    public abstract void set_int(T type, int value) throws Error;
+    public abstract void set_int (T type, int value) throws Error;
 }
 
 public interface IGetFloat<T> : GLib.Object {
-    public abstract float get_float(T type) throws Error;
+    public abstract float get_float (T type) throws Error;
 }
 
 public interface ISetFloat<T> : GLib.Object {
-    public abstract void set_float(T type, float value) throws Error;
+    public abstract void set_float (T type, float value) throws Error;
 }
 
 public interface ISetData<T, P> : GLib.Object {
-    public abstract void set_dat(T type, P data) throws Error;
+    public abstract void set_dat (T type, P data) throws Error;
 }
 
 public interface IList : GLib.Object {
-    public abstract void get(int index) throws Error;
+    public abstract void get (int index) throws Error;
 }
-    
+
 }
