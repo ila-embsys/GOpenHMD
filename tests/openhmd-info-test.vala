@@ -20,8 +20,8 @@ int print_info() {
 
     // Print device information
     for(int i = 0; i < num_devices; i++){
-        int device_class[1];
-        int device_flags[1];
+        int device_class[2];
+        int device_flags[2];
         const string device_class_s[] = {"HMD", "Controller", "Generic Tracker", "Unknown"};
 
         ohmd.list_geti(ctx, i, ohmd._int_value.DEVICE_CLASS, device_class);
