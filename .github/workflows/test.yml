@@ -22,6 +22,7 @@ jobs:
       uses: BSFishy/meson-build@v1.0.3
       with:
         action: build
+        options: --prefix=${{ vars.GITHUB_WORKSPACE }}/dist-install"
     - name: Meson Build 'typelib' target
       run: cd build && meson compile 'gopenhmd typelib'
     - name: Meson Test
@@ -39,3 +40,10 @@ jobs:
         comment_mode: off
         files: |
           builddir/meson-logs/*.junit.xml
+    - name: Archive artifacts
+      uses: actions/upload-artifact@v3
+      if: ${{ !env.ACT }}
+      with:
+        name: dist-install
+        path: |
+          dist-install
