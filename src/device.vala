@@ -1,7 +1,4 @@
 namespace GOpenHMD {
-    public class DeviceSettings : Object {
-
-    }
 
     public class Device : Object, IDevice {
 
@@ -168,10 +165,19 @@ namespace GOpenHMD {
         }
 
         construct {
-            this.dev = ohmd.list_open_device (
-                (ohmd._context)this.context.handle.ptr,
-                this.index
-            );
+            if (this.settings != null) {
+                this.dev = ohmd.list_open_device_s (
+                    (ohmd._context)this.context.handle.ptr,
+                    this.index,
+                    (ohmd._device_settings)this.settings.handle.ptr
+                );
+            } else {
+                this.dev = ohmd.list_open_device (
+                    (ohmd._context)this.context.handle.ptr,
+                    this.index
+                );
+            }
+
             debug (@"Device was opened: '$((uint)this.dev)'");
         }
 

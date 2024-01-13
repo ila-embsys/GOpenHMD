@@ -3,9 +3,11 @@ namespace GOpenHMD {
     public errordomain Error {
         CONTEXT_CREATE_FAIL,
         DEVICE_OPEN_FAIL,
+        DEVICE_SETTINGS_CREATE_FAIL,
         STRING_DESCRIPTION_GET_FAIL,
         INT_VALUE_GET_FAIL,
         INT_VALUE_SET_FAIL,
+        INT_SETTINGS_SET_FAIL,
         FLOAT_VALUE_GET_FAIL,
         FLOAT_VALUE_SET_FAIL,
         DATA_VALUE_SET_FAIL,

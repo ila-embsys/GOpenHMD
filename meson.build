@@ -15,6 +15,7 @@ sources = files(
     'src/gopenhmd.vala',
     'src/context.vala',
     'src/device_description.vala',
+    'src/device_settings.vala',
     'src/device.vala',
     'src/interfaces.vala',
 )

@@ -150,7 +150,7 @@ namespace ohmd {
 	[CCode (cheader_filename = "openhmd.h")]
 	public static void device_settings_destroy (ohmd._device_settings settings);
 	[CCode (cheader_filename = "openhmd.h")]
-	public static ohmd._status device_settings_seti (ohmd._device_settings settings, ohmd._int_settings key, int val);
+	public static ohmd._status device_settings_seti (ohmd._device_settings settings, ohmd._int_settings key, int* val);
 	[CCode (cheader_filename = "openhmd.h")]
 	public static void get_version (out int major, out int minor, out int patch);
 	[CCode (cheader_filename = "openhmd.h")]

@@ -15,8 +15,11 @@ public int main (string[] args) {
     info (@"Select device: $(devs[selected_dev].vendor) $(devs[selected_dev].product)");
 
     GOpenHMD.Device dev;
+
     try {
-        dev = ctx.open_device (selected_dev);
+        var settings = new GOpenHMD.DeviceSettings (ctx);
+        settings.set_automatic_update (true);
+        dev = ctx.open_device (selected_dev, settings);
     } catch (GOpenHMD.Error ex) {
         warning (@"Can't open device: $(ex.message)\n");
         return -1;
@@ -26,6 +29,7 @@ public int main (string[] args) {
 
     try {
         for (var i = 0; i < 500; i++) {
+            // TODO: automatic update should works
             ctx.update ();
             GOpenHMD.Quat quat = dev.rotation_quat ();
             debug ("x: % 8f, y: % 8f, z: % 8f, w: % 8f", quat.x, quat.y, quat.z, quat.w);

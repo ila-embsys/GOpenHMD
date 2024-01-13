@@ -21,10 +21,6 @@ public enum StringDescription {
     GLSL_ES_DISTORTION_FRAG_SRC = 5, // ohmd._string_description.GLSL_ES_DISTORTION_FRAG_SRC
 }
 
-public enum IntSettings {
-    IDS_AUTOMATIC_UPDATE = 0,
-}
-
 public enum FloatValue {
     ROTATION_QUAT = 1,
     LEFT_EYE_GL_MODELVIEW_MATRIX = 2,
