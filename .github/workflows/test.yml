@@ -33,6 +33,8 @@ jobs:
       uses: BSFishy/meson-build@v1.0.3
       with:
         action: install
+    - name: Install typelib
+      run: install -D ./build/GOpenHMD-*.typelib -t ./dist-install/usr/share/girepository-1.0/
     - name: Publish Test Results
       uses: EnricoMi/publish-unit-test-result-action@v2
       if: ${{ !env.ACT }}
