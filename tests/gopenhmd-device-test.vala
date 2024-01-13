@@ -21,28 +21,26 @@ public int main (string[] args) {
 		warning(@"Can't open device: $(ex.message)\n");
 		return -1;
 	}
-
+	
 	// Int values
-
 	int hres;
 	int vres;
 	try {
-		hres = dev.get_int(GOpenHMD.DeviceDescriptionIntValue.SCREEN_HORIZONTAL_RESOLUTION);
-		vres = dev.get_int(GOpenHMD.DeviceDescriptionIntValue.SCREEN_VERTICAL_RESOLUTION);
+		hres = dev.screen_horizontal_resolution();
+		vres = dev.screen_vertical_resolution();
 	} catch (GOpenHMD.Error ex) {
-		warning(@"Can't retrieve device parameters: $(ex.message)\n");
+		warning(@"Can't retrieve device parameter: $(ex.message)\n");
 		return -1;
 	}
 
 	info(@"Display resolution: $(hres) x $(vres)");
 
 	// Float values
-
 	float hsize;
 	float vsize;
 	try {
-		hsize = dev.get_float(GOpenHMD.FloatValue.SCREEN_HORIZONTAL_SIZE);
-		vsize = dev.get_float(GOpenHMD.FloatValue.SCREEN_VERTICAL_SIZE);
+		hsize = dev.screen_horizontal_size();
+		vsize = dev.screen_vertical_size();
 	} catch (GOpenHMD.Error ex) {
 		warning(@"Can't retrieve device parameters: $(ex.message)\n");
 		return -1;

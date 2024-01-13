@@ -1,12 +1,5 @@
 namespace GOpenHMD {
 
-public enum DeviceDescriptionStringValue {
-    // NOTE: Value assigned from `ohmd` turns to zero
-    VENDOR = 0, // ohmd._string_value.VENDOR,
-    PRODUCT = 1, // ohmd._string_value.PRODUCT,
-    PATH = 2, // ohmd._string_value.PATH,
-}
-
 public enum DeviceDescriptionIntValue {
     // NOTE: Value assigned from `ohmd` turns to zero
     SCREEN_HORIZONTAL_RESOLUTION = 0, // ohmd._int_value.SCREEN_HORIZONTAL_RESOLUTION
@@ -62,32 +55,57 @@ public enum DataValue {
     PROPERTIES
 }
 
-public interface IGetString<T> : GLib.Object {
-    public abstract unowned string get_str (T type) throws Error;
+public interface IDeviceDescription : Object {
+    public abstract string vendor { get; }
+    public abstract string product { get; }
+    public abstract string path { get; }
+
+    public abstract int screen_horizontal_resolution () throws Error;
+    public abstract int screen_vertical_resolution () throws Error;
+
+    public abstract int device_class () throws Error;
+    public abstract int device_flags () throws Error;
+
+    public abstract int control_count () throws Error;
+    public abstract int[] control_hints () throws Error;
+    public abstract int[] control_types () throws Error;
 }
 
-public interface IGetInteger<T>: GLib.Object {
-    public abstract int get_int (DeviceDescriptionIntValue type) throws Error;
-}
 
-public interface ISetInteger<T> : GLib.Object {
-    public abstract void set_int (T type, int value) throws Error;
-}
+public interface IDevice : Object {
 
-public interface IGetFloat<T> : GLib.Object {
-    public abstract float get_float (T type) throws Error;
-}
+    public abstract float[] rotation_quat () throws Error;
 
-public interface ISetFloat<T> : GLib.Object {
-    public abstract void set_float (T type, float value) throws Error;
-}
+    public abstract float[] left_eye_gl_modelview_matrix () throws Error;
+    public abstract float[] right_eye_gl_modelview_matrix () throws Error;
 
-public interface ISetData<T, P> : GLib.Object {
-    public abstract void set_dat (T type, P data) throws Error;
-}
+    public abstract float[] left_eye_gl_projection_matrix () throws Error;
+    public abstract float[] right_eye_gl_projection_matrix () throws Error;
 
-public interface IList : GLib.Object {
-    public abstract void get (int index) throws Error;
+    public abstract float[] position_vector () throws Error;
+
+    public abstract float screen_horizontal_size () throws Error;
+    public abstract float screen_vertical_size () throws Error;
+
+    public abstract float lens_horizontal_separation () throws Error;
+    public abstract float lens_vertical_position () throws Error;
+
+    public abstract float left_eye_fov () throws Error;
+    public abstract float left_eye_aspect_ratio () throws Error;
+
+    public abstract float eye_ipd () throws Error;
+
+    public abstract float projection_zfar () throws Error;
+    public abstract float projection_znear () throws Error;
+
+    public abstract float[] distortion_k () throws Error;
+
+    public abstract float[] external_sensor_fusion () throws Error;
+
+    public abstract float[] universal_distortion_k () throws Error;
+    public abstract float[] universal_abberation_k () throws Error;
+
+    public abstract float[] controls_state () throws Error;
 }
 
 }

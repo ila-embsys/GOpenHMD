@@ -24,12 +24,19 @@ public int main (string[] args) {
 
     info ("Start pose quat requesting...");
 
-    float quat;
+    float[] quat;
     try {
-        for (var i = 0; i < 1000; i++) {
-            quat = dev.get_float(GOpenHMD.FloatValue.ROTATION_QUAT);
-            debug(@"$(quat)");
-            GOpenHMD.sleep (0.001);
+        for (var i = 0; i < 500; i++) {
+            ctx.update ();
+            quat = dev.rotation_quat ();
+            string str = "'rotation_quat': {";
+            for (var j = 0; j < quat.length; j++) {
+                if (j > 0) str += ", ";
+                str += @"'$(quat[j])'";
+            }
+            str += "}";
+            debug (str);
+            GOpenHMD.sleep (0.01);
         }
     } catch (GOpenHMD.Error ex) {
         warning(@"Can't retrieve device parameters: $(ex.message)\n");

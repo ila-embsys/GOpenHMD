@@ -1,5 +1,12 @@
 namespace GOpenHMD {
 
+    public enum DeviceDescriptionStringValue {
+        // NOTE: Value assigned from `ohmd` turns to zero
+        VENDOR = 0, // ohmd._string_value.VENDOR,
+        PRODUCT = 1, // ohmd._string_value.PRODUCT,
+        PATH = 2, // ohmd._string_value.PATH,
+    }
+
     public struct ContextHandle {
         public ContextHandle (int* ptr) {
             this.ptr = ptr;
@@ -71,15 +78,20 @@ namespace GOpenHMD {
             return dev;
         }
 
+        public DeviceDescription describe_device ( int index ) {
+            var description = new DeviceDescription (this, index);
+            return description;
+        }
+
         public unowned string list_gets (int index, DeviceDescriptionStringValue type) {
             var t = (ohmd._string_value) type;
             unowned var s = ohmd.list_gets (this.ctx, index, t);
             return s;
         }
 
-        public int list_geti (int index, DeviceDescriptionIntValue type) throws Error {
+        public int[] list_geti (int index, DeviceDescriptionIntValue type, int size = 1) throws Error {
             var t = (ohmd._int_value) type;
-            int o[16];
+            int[] o = new int [size];
             int ret = ohmd.list_geti (this.ctx, index, t, o);
 
             if (ret < 0) {
@@ -88,7 +100,7 @@ namespace GOpenHMD {
                 );
             }
 
-            return o[0];
+            return o;
         }
 
         // Private properties

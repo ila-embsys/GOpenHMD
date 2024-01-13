@@ -31,9 +31,11 @@ function main() {
 
     console.info(`Start pose quat requesting...`);
     const FloatReq = GOpenHMD.FloatValue;
-    for(var i = 0; i < 1000; i++){
-        var quat = dev.get_float(FloatReq.ROTATION_QUAT);
+    for(var i = 0; i < 500; i++){
+        context.update();
+        var quat = dev.rotation_quat();
         console.info(quat);
+        GOpenHMD.sleep(0.01);
     }
 
     return 0

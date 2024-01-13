@@ -1,7 +1,7 @@
 namespace GOpenHMD {
 
 // Enumerated device
-public class DeviceDescription : Object {
+public class DeviceDescription : Object, IDeviceDescription {
 
     public string vendor {
         get {
@@ -27,88 +27,65 @@ public class DeviceDescription : Object {
         }
     }
 
-    public int? screen_horizontal_resolution {
-        get {
-            try {
-                int hres = this.ctx.list_geti (
-                    this.index,
-                    DeviceDescriptionIntValue.SCREEN_HORIZONTAL_RESOLUTION
-                );
-                return hres;
-            } catch (Error ex) { return null; }
-        }
+    public int screen_horizontal_resolution () throws Error {
+        int[] ret = this.ctx.list_geti (
+            this.index,
+            DeviceDescriptionIntValue.SCREEN_HORIZONTAL_RESOLUTION
+        );
+        return ret[0];
     }
 
-    public int? screen_vertical_resolution {
-        get {
-            try {
-                int hres = this.ctx.list_geti (
-                    this.index,
-                    DeviceDescriptionIntValue.SCREEN_VERTICAL_RESOLUTION
-                );
-                return hres;
-            } catch (Error ex) { return null; }
-        }
+    public int screen_vertical_resolution () throws Error {
+        int[] ret = this.ctx.list_geti (
+            this.index,
+            DeviceDescriptionIntValue.SCREEN_VERTICAL_RESOLUTION
+        );
+        return ret[0];
     }
 
-    public int? device_class {
-        get {
-            try {
-                int hres = this.ctx.list_geti (
-                    this.index,
-                    DeviceDescriptionIntValue.DEVICE_CLASS
-                );
-                return hres;
-            } catch (Error ex) { return null; }
-        }
+    public int device_class () throws Error {
+        int[] ret = this.ctx.list_geti (
+            this.index,
+            DeviceDescriptionIntValue.DEVICE_CLASS
+        );
+        return ret[0];
     }
 
-    public int? device_flags {
-        get {
-            try {
-                int hres = this.ctx.list_geti (
-                    this.index,
-                    DeviceDescriptionIntValue.DEVICE_FLAGS
-                );
-                return hres;
-            } catch (Error ex) { return null; }
-        }
+    public int device_flags () throws Error {
+        int[] ret = this.ctx.list_geti (
+            this.index,
+            DeviceDescriptionIntValue.DEVICE_FLAGS,
+            4
+        );
+        return ret[0];
     }
 
-    public int? control_count {
-        get {
-            try {
-                int hres = this.ctx.list_geti (
-                    this.index,
-                    DeviceDescriptionIntValue.CONTROL_COUNT
-                );
-                return hres;
-            } catch (Error ex) { return null; }
-        }
+    public int control_count () throws Error {
+        int[] ret = this.ctx.list_geti (
+            this.index,
+            DeviceDescriptionIntValue.CONTROL_COUNT
+        );
+        return ret[0];
     }
 
-    public int? control_hints {
-        get {
-            try {
-                int hres = this.ctx.list_geti (
-                    this.index,
-                    DeviceDescriptionIntValue.CONTROLS_HINTS
-                );
-                return hres;
-            } catch (Error ex) { return null; }
-        }
+    public int[] control_hints () throws Error {
+        var size = this.ctx.list_geti (this.index, DeviceDescriptionIntValue.CONTROL_COUNT)[0];
+        int[] ret = this.ctx.list_geti (
+            this.index,
+            DeviceDescriptionIntValue.CONTROLS_HINTS,
+            size
+        );
+        return ret;
     }
 
-    public int? control_types {
-        get {
-            try {
-                int hres = this.ctx.list_geti (
-                    this.index,
-                    DeviceDescriptionIntValue.CONTROLS_TYPES
-                );
-                return hres;
-            } catch (Error ex) { return null; }
-        }
+    public int[] control_types () throws Error {
+        var size = this.ctx.list_geti (this.index, DeviceDescriptionIntValue.CONTROL_COUNT)[0];
+        int[] ret = this.ctx.list_geti (
+            this.index,
+            DeviceDescriptionIntValue.CONTROLS_TYPES,
+            size
+        );
+        return ret;
     }
 
     public DeviceDescription (GOpenHMD.Context ctx, int index) {
