@@ -47,8 +47,15 @@ namespace GOpenHMD {
             );
         }
 
-        public float[] rotation_quat () throws Error {
-            return this.get_float (FloatValue.ROTATION_QUAT, 4);
+        public Quat rotation_quat () throws Error {
+            float[] ret = this.get_float (FloatValue.ROTATION_QUAT, 4);
+            var quat = Quat () {
+                x = ret[0],
+                y = ret[1],
+                z = ret[2],
+                w = ret[3]
+            };
+            return quat;
         }
 
         public float[] left_eye_gl_modelview_matrix () throws Error {
@@ -67,8 +74,14 @@ namespace GOpenHMD {
             return this.get_float (FloatValue.RIGHT_EYE_GL_PROJECTION_MATRIX, 16);
         }
 
-        public float[] position_vector () throws Error {
-            return this.get_float (FloatValue.POSITION_VECTOR, 3);
+        public Position position_vector () throws Error {
+            var ret = this.get_float (FloatValue.POSITION_VECTOR, 3);
+            var pos = Position () {
+                x = ret[0],
+                y = ret[1],
+                z = ret[2]
+            };
+            return pos;
         }
 
         public float screen_horizontal_size () throws Error {

@@ -119,7 +119,7 @@ namespace GOpenHMD {
         }
 
         private int _probe () {
-            debug ("Probe devices...");
+            debug ("Probe devices…");
             var number_of_devices = ohmd.ctx_probe (this.ctx);
             debug (@"Discovered '$(number_of_devices)' devices");
             return number_of_devices;

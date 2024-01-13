@@ -34,7 +34,7 @@ function main() {
     for(var i = 0; i < 500; i++){
         context.update();
         var quat = dev.rotation_quat();
-        console.info(quat);
+        print(`x: ${quat.x}, y: ${quat.y}, z: ${quat.z}, w: ${quat.w}`);
         GOpenHMD.sleep(0.01);
     }
 

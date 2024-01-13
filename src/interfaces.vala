@@ -71,10 +71,23 @@ public interface IDeviceDescription : Object {
     public abstract int[] control_types () throws Error;
 }
 
+public struct Quat {
+    public float x;
+    public float y;
+    public float z;
+    public float w;
+}
+
+public struct Position {
+    public float x;
+    public float y;
+    public float z;
+    public float w;
+}
 
 public interface IDevice : Object {
 
-    public abstract float[] rotation_quat () throws Error;
+    public abstract Quat rotation_quat () throws Error;
 
     public abstract float[] left_eye_gl_modelview_matrix () throws Error;
     public abstract float[] right_eye_gl_modelview_matrix () throws Error;
@@ -82,7 +95,7 @@ public interface IDevice : Object {
     public abstract float[] left_eye_gl_projection_matrix () throws Error;
     public abstract float[] right_eye_gl_projection_matrix () throws Error;
 
-    public abstract float[] position_vector () throws Error;
+    public abstract Position position_vector () throws Error;
 
     public abstract float screen_horizontal_size () throws Error;
     public abstract float screen_vertical_size () throws Error;
