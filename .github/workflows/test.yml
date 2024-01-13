@@ -22,7 +22,7 @@ jobs:
       uses: BSFishy/meson-build@v1.0.3
       with:
         action: build
-        options: --prefix=${{ vars.GITHUB_WORKSPACE }}/dist-install"
+        setup-options: --prefix=${{ github.workspace }}/dist-install
     - name: Meson Build 'typelib' target
       run: cd build && meson compile 'gopenhmd typelib'
     - name: Meson Test
