@@ -25,7 +25,7 @@ gopenhmd_lib = shared_library('gopenhmd',
                 vala_gir: 'GOpenHMD-1.0.gir',
                 dependencies: gopenhmd_dep,
                 sources: sources,
-                install: false,
+                install: true,
                 install_dir: [true, true, true, true])
 
 pkg = import('pkgconfig')
