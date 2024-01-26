@@ -1,0 +1,618 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <package name="openhmd"/>
+  <namespace name="openhmd"
+             version="0.3.0"
+             shared-library="libopenhmd.so.0"
+             c:identifier-prefixes="ohmd"
+             c:symbol-prefixes="ohmd">
+    <constant name="STR_SIZE" value="256" c:type="OHMD_STR_SIZE">
+      <source-position filename="openhmd.h" line="39"/>
+      <type name="gint" c:type="gint"/>
+    </constant>
+    <record name="_context" c:type="ohmd_context" disguised="1" opaque="1">
+      <source-position filename="openhmd.h" line="232"/>
+    </record>
+    <enumeration name="_control_hint" c:type="ohmd_control_hint">
+      <source-position filename="openhmd.h" line="89"/>
+      <member name="generic" value="0" c:identifier="OHMD_GENERIC">
+      </member>
+      <member name="trigger" value="1" c:identifier="OHMD_TRIGGER">
+      </member>
+      <member name="trigger_click" value="2" c:identifier="OHMD_TRIGGER_CLICK">
+      </member>
+      <member name="squeeze" value="3" c:identifier="OHMD_SQUEEZE">
+      </member>
+      <member name="menu" value="4" c:identifier="OHMD_MENU">
+      </member>
+      <member name="home" value="5" c:identifier="OHMD_HOME">
+      </member>
+      <member name="analog_x" value="6" c:identifier="OHMD_ANALOG_X">
+      </member>
+      <member name="analog_y" value="7" c:identifier="OHMD_ANALOG_Y">
+      </member>
+      <member name="analog_press" value="8" c:identifier="OHMD_ANALOG_PRESS">
+      </member>
+      <member name="button_a" value="9" c:identifier="OHMD_BUTTON_A">
+      </member>
+      <member name="button_b" value="10" c:identifier="OHMD_BUTTON_B">
+      </member>
+      <member name="button_x" value="11" c:identifier="OHMD_BUTTON_X">
+      </member>
+      <member name="button_y" value="12" c:identifier="OHMD_BUTTON_Y">
+      </member>
+      <member name="volume_plus" value="13" c:identifier="OHMD_VOLUME_PLUS">
+      </member>
+      <member name="volume_minus" value="14" c:identifier="OHMD_VOLUME_MINUS">
+      </member>
+      <member name="mic_mute" value="15" c:identifier="OHMD_MIC_MUTE">
+      </member>
+    </enumeration>
+    <enumeration name="_control_type" c:type="ohmd_control_type">
+      <source-position filename="openhmd.h" line="95"/>
+      <member name="digital" value="0" c:identifier="OHMD_DIGITAL">
+      </member>
+      <member name="analog" value="1" c:identifier="OHMD_ANALOG">
+      </member>
+    </enumeration>
+    <enumeration name="_data_value" c:type="ohmd_data_value">
+      <source-position filename="openhmd.h" line="201"/>
+      <member name="data" value="0" c:identifier="OHMD_DRIVER_DATA">
+      </member>
+      <member name="properties"
+              value="1"
+              c:identifier="OHMD_DRIVER_PROPERTIES">
+      </member>
+    </enumeration>
+    <record name="_device" c:type="ohmd_device" disguised="1" opaque="1">
+      <source-position filename="openhmd.h" line="235"/>
+    </record>
+    <enumeration name="_device_class" c:type="ohmd_device_class">
+      <source-position filename="openhmd.h" line="218"/>
+      <member name="hmd" value="0" c:identifier="OHMD_DEVICE_CLASS_HMD">
+      </member>
+      <member name="controller"
+              value="1"
+              c:identifier="OHMD_DEVICE_CLASS_CONTROLLER">
+      </member>
+      <member name="generic_tracker"
+              value="2"
+              c:identifier="OHMD_DEVICE_CLASS_GENERIC_TRACKER">
+      </member>
+    </enumeration>
+    <enumeration name="_device_flags" c:type="ohmd_device_flags">
+      <source-position filename="openhmd.h" line="229"/>
+      <member name="null_device"
+              value="1"
+              c:identifier="OHMD_DEVICE_FLAGS_NULL_DEVICE">
+      </member>
+      <member name="positional_tracking"
+              value="2"
+              c:identifier="OHMD_DEVICE_FLAGS_POSITIONAL_TRACKING">
+      </member>
+      <member name="rotational_tracking"
+              value="4"
+              c:identifier="OHMD_DEVICE_FLAGS_ROTATIONAL_TRACKING">
+      </member>
+      <member name="left_controller"
+              value="8"
+              c:identifier="OHMD_DEVICE_FLAGS_LEFT_CONTROLLER">
+      </member>
+      <member name="right_controller"
+              value="16"
+              c:identifier="OHMD_DEVICE_FLAGS_RIGHT_CONTROLLER">
+      </member>
+    </enumeration>
+    <record name="_device_settings"
+            c:type="ohmd_device_settings"
+            disguised="1"
+            opaque="1">
+      <source-position filename="openhmd.h" line="238"/>
+    </record>
+    <enumeration name="_float_value" c:type="ohmd_float_value">
+      <source-position filename="openhmd.h" line="166"/>
+      <member name="rotation_quat" value="1" c:identifier="OHMD_ROTATION_QUAT">
+      </member>
+      <member name="left_eye_gl_modelview_matrix"
+              value="2"
+              c:identifier="OHMD_LEFT_EYE_GL_MODELVIEW_MATRIX">
+      </member>
+      <member name="right_eye_gl_modelview_matrix"
+              value="3"
+              c:identifier="OHMD_RIGHT_EYE_GL_MODELVIEW_MATRIX">
+      </member>
+      <member name="left_eye_gl_projection_matrix"
+              value="4"
+              c:identifier="OHMD_LEFT_EYE_GL_PROJECTION_MATRIX">
+      </member>
+      <member name="right_eye_gl_projection_matrix"
+              value="5"
+              c:identifier="OHMD_RIGHT_EYE_GL_PROJECTION_MATRIX">
+      </member>
+      <member name="position_vector"
+              value="6"
+              c:identifier="OHMD_POSITION_VECTOR">
+      </member>
+      <member name="screen_horizontal_size"
+              value="7"
+              c:identifier="OHMD_SCREEN_HORIZONTAL_SIZE">
+      </member>
+      <member name="screen_vertical_size"
+              value="8"
+              c:identifier="OHMD_SCREEN_VERTICAL_SIZE">
+      </member>
+      <member name="lens_horizontal_separation"
+              value="9"
+              c:identifier="OHMD_LENS_HORIZONTAL_SEPARATION">
+      </member>
+      <member name="lens_vertical_position"
+              value="10"
+              c:identifier="OHMD_LENS_VERTICAL_POSITION">
+      </member>
+      <member name="left_eye_fov" value="11" c:identifier="OHMD_LEFT_EYE_FOV">
+      </member>
+      <member name="left_eye_aspect_ratio"
+              value="12"
+              c:identifier="OHMD_LEFT_EYE_ASPECT_RATIO">
+      </member>
+      <member name="right_eye_fov"
+              value="13"
+              c:identifier="OHMD_RIGHT_EYE_FOV">
+      </member>
+      <member name="right_eye_aspect_ratio"
+              value="14"
+              c:identifier="OHMD_RIGHT_EYE_ASPECT_RATIO">
+      </member>
+      <member name="eye_ipd" value="15" c:identifier="OHMD_EYE_IPD">
+      </member>
+      <member name="projection_zfar"
+              value="16"
+              c:identifier="OHMD_PROJECTION_ZFAR">
+      </member>
+      <member name="projection_znear"
+              value="17"
+              c:identifier="OHMD_PROJECTION_ZNEAR">
+      </member>
+      <member name="distortion_k" value="18" c:identifier="OHMD_DISTORTION_K">
+      </member>
+      <member name="external_sensor_fusion"
+              value="19"
+              c:identifier="OHMD_EXTERNAL_SENSOR_FUSION">
+      </member>
+      <member name="universal_distortion_k"
+              value="20"
+              c:identifier="OHMD_UNIVERSAL_DISTORTION_K">
+      </member>
+      <member name="universal_aberration_k"
+              value="21"
+              c:identifier="OHMD_UNIVERSAL_ABERRATION_K">
+      </member>
+      <member name="controls_state"
+              value="22"
+              c:identifier="OHMD_CONTROLS_STATE">
+      </member>
+    </enumeration>
+    <enumeration name="_int_settings" c:type="ohmd_int_settings">
+      <source-position filename="openhmd.h" line="207"/>
+      <member name="ids_automatic_update"
+              value="0"
+              c:identifier="OHMD_IDS_AUTOMATIC_UPDATE">
+      </member>
+    </enumeration>
+    <enumeration name="_int_value" c:type="ohmd_int_value">
+      <source-position filename="openhmd.h" line="188"/>
+      <member name="screen_horizontal_resolution"
+              value="0"
+              c:identifier="OHMD_SCREEN_HORIZONTAL_RESOLUTION">
+      </member>
+      <member name="screen_vertical_resolution"
+              value="1"
+              c:identifier="OHMD_SCREEN_VERTICAL_RESOLUTION">
+      </member>
+      <member name="device_class" value="2" c:identifier="OHMD_DEVICE_CLASS">
+      </member>
+      <member name="device_flags" value="3" c:identifier="OHMD_DEVICE_FLAGS">
+      </member>
+      <member name="control_count" value="4" c:identifier="OHMD_CONTROL_COUNT">
+      </member>
+      <member name="controls_hints"
+              value="5"
+              c:identifier="OHMD_CONTROLS_HINTS">
+      </member>
+      <member name="controls_types"
+              value="6"
+              c:identifier="OHMD_CONTROLS_TYPES">
+      </member>
+    </enumeration>
+    <enumeration name="_status" c:type="ohmd_status">
+      <source-position filename="openhmd.h" line="51"/>
+      <member name="ok" value="0" c:identifier="OHMD_S_OK">
+      </member>
+      <member name="unknown_error"
+              value="-1"
+              c:identifier="OHMD_S_UNKNOWN_ERROR">
+      </member>
+      <member name="invalid_parameter"
+              value="-2"
+              c:identifier="OHMD_S_INVALID_PARAMETER">
+      </member>
+      <member name="unsupported" value="-3" c:identifier="OHMD_S_UNSUPPORTED">
+      </member>
+      <member name="invalid_operation"
+              value="-4"
+              c:identifier="OHMD_S_INVALID_OPERATION">
+      </member>
+      <member name="user_reserved"
+              value="-16384"
+              c:identifier="OHMD_S_USER_RESERVED">
+      </member>
+    </enumeration>
+    <enumeration name="_string_description" c:type="ohmd_string_description">
+      <source-position filename="openhmd.h" line="68"/>
+      <member name="distortion_vert_src"
+              value="0"
+              c:identifier="OHMD_GLSL_DISTORTION_VERT_SRC">
+      </member>
+      <member name="distortion_frag_src"
+              value="1"
+              c:identifier="OHMD_GLSL_DISTORTION_FRAG_SRC">
+      </member>
+      <member name="330_distortion_vert_src"
+              value="2"
+              c:identifier="OHMD_GLSL_330_DISTORTION_VERT_SRC">
+      </member>
+      <member name="330_distortion_frag_src"
+              value="3"
+              c:identifier="OHMD_GLSL_330_DISTORTION_FRAG_SRC">
+      </member>
+      <member name="es_distortion_vert_src"
+              value="4"
+              c:identifier="OHMD_GLSL_ES_DISTORTION_VERT_SRC">
+      </member>
+      <member name="es_distortion_frag_src"
+              value="5"
+              c:identifier="OHMD_GLSL_ES_DISTORTION_FRAG_SRC">
+      </member>
+    </enumeration>
+    <enumeration name="_string_value" c:type="ohmd_string_value">
+      <source-position filename="openhmd.h" line="58"/>
+      <member name="vendor" value="0" c:identifier="OHMD_VENDOR">
+      </member>
+      <member name="product" value="1" c:identifier="OHMD_PRODUCT">
+      </member>
+      <member name="path" value="2" c:identifier="OHMD_PATH">
+      </member>
+    </enumeration>
+    <function name="close_device" c:identifier="ohmd_close_device">
+      <source-position filename="openhmd.h" line="402"/>
+      <return-value transfer-ownership="none">
+        <type name="gint" c:type="int"/>
+      </return-value>
+      <parameters>
+        <parameter name="device" transfer-ownership="none">
+          <type name="_device" c:type="ohmd_device*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="ctx_create"
+              c:identifier="ohmd_ctx_create"
+              introspectable="0">
+      <source-position filename="openhmd.h" line="245"/>
+      <return-value>
+        <type name="_context" c:type="ohmd_context*"/>
+      </return-value>
+    </function>
+    <function name="ctx_destroy" c:identifier="ohmd_ctx_destroy">
+      <source-position filename="openhmd.h" line="255"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="ctx" transfer-ownership="none">
+          <type name="_context" c:type="ohmd_context*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="ctx_get_error" c:identifier="ohmd_ctx_get_error">
+      <source-position filename="openhmd.h" line="266"/>
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="const char*"/>
+      </return-value>
+      <parameters>
+        <parameter name="ctx" transfer-ownership="none">
+          <type name="_context" c:type="ohmd_context*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="ctx_probe" c:identifier="ohmd_ctx_probe">
+      <source-position filename="openhmd.h" line="291"/>
+      <return-value transfer-ownership="none">
+        <type name="gint" c:type="int"/>
+      </return-value>
+      <parameters>
+        <parameter name="ctx" transfer-ownership="none">
+          <type name="_context" c:type="ohmd_context*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="ctx_update" c:identifier="ohmd_ctx_update">
+      <source-position filename="openhmd.h" line="281"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="ctx" transfer-ownership="none">
+          <type name="_context" c:type="ohmd_context*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="device_getf" c:identifier="ohmd_device_getf">
+      <source-position filename="openhmd.h" line="413"/>
+      <return-value transfer-ownership="none">
+        <type name="gint" c:type="int"/>
+      </return-value>
+      <parameters>
+        <parameter name="device" transfer-ownership="none">
+          <type name="_device" c:type="ohmd_device*"/>
+        </parameter>
+        <parameter name="type" transfer-ownership="none">
+          <type name="_float_value" c:type="ohmd_float_value"/>
+        </parameter>
+        <parameter name="out" transfer-ownership="none">
+          <type name="gfloat" c:type="float*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="device_geti" c:identifier="ohmd_device_geti">
+      <source-position filename="openhmd.h" line="433"/>
+      <return-value transfer-ownership="none">
+        <type name="gint" c:type="int"/>
+      </return-value>
+      <parameters>
+        <parameter name="device" transfer-ownership="none">
+          <type name="_device" c:type="ohmd_device*"/>
+        </parameter>
+        <parameter name="type" transfer-ownership="none">
+          <type name="_int_value" c:type="ohmd_int_value"/>
+        </parameter>
+        <parameter name="out" transfer-ownership="none">
+          <type name="gint" c:type="int*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="device_set_data" c:identifier="ohmd_device_set_data">
+      <source-position filename="openhmd.h" line="453"/>
+      <return-value transfer-ownership="none">
+        <type name="gint" c:type="int"/>
+      </return-value>
+      <parameters>
+        <parameter name="device" transfer-ownership="none">
+          <type name="_device" c:type="ohmd_device*"/>
+        </parameter>
+        <parameter name="type" transfer-ownership="none">
+          <type name="_data_value" c:type="ohmd_data_value"/>
+        </parameter>
+        <parameter name="in"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1">
+          <type name="gpointer" c:type="void*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="device_setf" c:identifier="ohmd_device_setf">
+      <source-position filename="openhmd.h" line="423"/>
+      <return-value transfer-ownership="none">
+        <type name="gint" c:type="int"/>
+      </return-value>
+      <parameters>
+        <parameter name="device" transfer-ownership="none">
+          <type name="_device" c:type="ohmd_device*"/>
+        </parameter>
+        <parameter name="type" transfer-ownership="none">
+          <type name="_float_value" c:type="ohmd_float_value"/>
+        </parameter>
+        <parameter name="in" transfer-ownership="none">
+          <type name="gfloat" c:type="const float*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="device_seti" c:identifier="ohmd_device_seti">
+      <source-position filename="openhmd.h" line="443"/>
+      <return-value transfer-ownership="none">
+        <type name="gint" c:type="int"/>
+      </return-value>
+      <parameters>
+        <parameter name="device" transfer-ownership="none">
+          <type name="_device" c:type="ohmd_device*"/>
+        </parameter>
+        <parameter name="type" transfer-ownership="none">
+          <type name="_int_value" c:type="ohmd_int_value"/>
+        </parameter>
+        <parameter name="in" transfer-ownership="none">
+          <type name="gint" c:type="const int*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="device_settings_create"
+              c:identifier="ohmd_device_settings_create"
+              introspectable="0">
+      <source-position filename="openhmd.h" line="384"/>
+      <return-value>
+        <type name="_device_settings" c:type="ohmd_device_settings*"/>
+      </return-value>
+      <parameters>
+        <parameter name="ctx" transfer-ownership="none">
+          <type name="_context" c:type="ohmd_context*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="device_settings_destroy"
+              c:identifier="ohmd_device_settings_destroy">
+      <source-position filename="openhmd.h" line="391"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="settings" transfer-ownership="none">
+          <type name="_device_settings" c:type="ohmd_device_settings*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="device_settings_seti"
+              c:identifier="ohmd_device_settings_seti">
+      <source-position filename="openhmd.h" line="376"/>
+      <return-value transfer-ownership="none">
+        <type name="_status" c:type="ohmd_status"/>
+      </return-value>
+      <parameters>
+        <parameter name="settings" transfer-ownership="none">
+          <type name="_device_settings" c:type="ohmd_device_settings*"/>
+        </parameter>
+        <parameter name="key" transfer-ownership="none">
+          <type name="_int_settings" c:type="ohmd_int_settings"/>
+        </parameter>
+        <parameter name="val" transfer-ownership="none">
+          <type name="gint" c:type="const int*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_version" c:identifier="ohmd_get_version">
+      <source-position filename="openhmd.h" line="462"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="out_major" transfer-ownership="none">
+          <type name="gint" c:type="int*"/>
+        </parameter>
+        <parameter name="out_minor" transfer-ownership="none">
+          <type name="gint" c:type="int*"/>
+        </parameter>
+        <parameter name="out_patch" transfer-ownership="none">
+          <type name="gint" c:type="int*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gets" c:identifier="ohmd_gets">
+      <source-position filename="openhmd.h" line="303"/>
+      <return-value transfer-ownership="none">
+        <type name="gint" c:type="int"/>
+      </return-value>
+      <parameters>
+        <parameter name="type" transfer-ownership="none">
+          <type name="_string_description" c:type="ohmd_string_description"/>
+        </parameter>
+        <parameter name="out" transfer-ownership="none">
+          <type name="utf8" c:type="const char**"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="list_geti" c:identifier="ohmd_list_geti">
+      <source-position filename="openhmd.h" line="336"/>
+      <return-value transfer-ownership="none">
+        <type name="gint" c:type="int"/>
+      </return-value>
+      <parameters>
+        <parameter name="ctx" transfer-ownership="none">
+          <type name="_context" c:type="ohmd_context*"/>
+        </parameter>
+        <parameter name="index" transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </parameter>
+        <parameter name="type" transfer-ownership="none">
+          <type name="_int_value" c:type="ohmd_int_value"/>
+        </parameter>
+        <parameter name="out" transfer-ownership="none">
+          <type name="gint" c:type="int*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="list_gets" c:identifier="ohmd_list_gets">
+      <source-position filename="openhmd.h" line="321"/>
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="const char*"/>
+      </return-value>
+      <parameters>
+        <parameter name="ctx" transfer-ownership="none">
+          <type name="_context" c:type="ohmd_context*"/>
+        </parameter>
+        <parameter name="index" transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </parameter>
+        <parameter name="type" transfer-ownership="none">
+          <type name="_string_value" c:type="ohmd_string_value"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="list_open_device"
+              c:identifier="ohmd_list_open_device"
+              introspectable="0">
+      <source-position filename="openhmd.h" line="351"/>
+      <return-value>
+        <type name="_device" c:type="ohmd_device*"/>
+      </return-value>
+      <parameters>
+        <parameter name="ctx" transfer-ownership="none">
+          <type name="_context" c:type="ohmd_context*"/>
+        </parameter>
+        <parameter name="index" transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="list_open_device_s"
+              c:identifier="ohmd_list_open_device_s"
+              introspectable="0">
+      <source-position filename="openhmd.h" line="367"/>
+      <return-value>
+        <type name="_device" c:type="ohmd_device*"/>
+      </return-value>
+      <parameters>
+        <parameter name="ctx" transfer-ownership="none">
+          <type name="_context" c:type="ohmd_context*"/>
+        </parameter>
+        <parameter name="index" transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </parameter>
+        <parameter name="settings" transfer-ownership="none">
+          <type name="_device_settings" c:type="ohmd_device_settings*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="require_version" c:identifier="ohmd_require_version">
+      <source-position filename="openhmd.h" line="472"/>
+      <return-value transfer-ownership="none">
+        <type name="_status" c:type="ohmd_status"/>
+      </return-value>
+      <parameters>
+        <parameter name="major" transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </parameter>
+        <parameter name="minor" transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </parameter>
+        <parameter name="patch" transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="sleep" c:identifier="ohmd_sleep">
+      <source-position filename="openhmd.h" line="479"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="time" transfer-ownership="none">
+          <type name="gdouble" c:type="double"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

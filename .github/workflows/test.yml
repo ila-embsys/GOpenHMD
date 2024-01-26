@@ -1,0 +1,51 @@
+name: tests
+on: [pull_request, workflow_dispatch]
+
+permissions:
+  checks: write
+
+jobs:
+  test:
+    name: tests
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Update packages
+      run: sudo apt-get update
+    - name: Install packages
+      uses: awalsh128/cache-apt-pkgs-action@v1.3.1
+      with:
+        packages: valac gjs meson libopenhmd-dev gobject-introspection libgirepository1.0-dev
+        version: 1.0
+    - name: Meson Build
+      uses: BSFishy/meson-build@v1.0.3
+      with:
+        action: build
+        setup-options: --prefix=${{ github.workspace }}/dist-install
+    - name: Meson Build 'typelib' target
+      run: cd build && meson compile 'gopenhmd typelib'
+    - name: Meson Test
+      uses: BSFishy/meson-build@v1.0.3
+      with:
+        action: test
+    - name: Meson Install
+      uses: BSFishy/meson-build@v1.0.3
+      with:
+        action: install
+    - name: Install typelib
+      run: install -D ./build/GOpenHMD-*.typelib -t ./dist-install/share/girepository-1.0/
+    - name: Publish Test Results
+      uses: EnricoMi/publish-unit-test-result-action@v2
+      if: ${{ !env.ACT }}
+      with:
+        comment_mode: off
+        files: |
+          build/meson-logs/*.junit.xml
+    - name: Archive artifacts
+      uses: actions/upload-artifact@v3
+      if: ${{ !env.ACT }}
+      with:
+        name: dist-install
+        path: |
+          dist-install

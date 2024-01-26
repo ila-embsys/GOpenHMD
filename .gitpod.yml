@@ -1,0 +1,11 @@
+image:
+  file: .dev-env.Dockerfile
+
+vscode:
+  extensions:
+    - mesonbuild.mesonbuild
+    - prince781.vala
+    - vadimcn.vscode-lldb
+    -	ColinKiama.linter-vala
+    - fnando.linter
+
