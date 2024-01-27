@@ -1,12 +1,20 @@
-name: tests
-on: [pull_request, workflow_dispatch]
+name: Tests
+
+on:
+  pull_request:
+  workflow_dispatch:
+  push:
+      branches:
+        - main
+        - dev
+
 
 permissions:
   checks: write
 
 jobs:
-  test:
-    name: tests
+  test: 
+    name: Build and Test
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
